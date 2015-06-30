@@ -4,7 +4,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
-@Named
+@Named  //Implicit name: fortuneController (klassenaam met eerste letter lowercase)
 public class FortuneController {
     @Inject
     private FortuneRepository fortuneRepository;
