@@ -1,1 +1,14 @@
-/* Add your styles here */
+
+
+
+#userlist {
+    background-image: url(http://baihusi.com/wp-content/uploads/2015/03/attractive-white-wood-floor-texture.jpg);
+    background-size: cover;
+}
+
+#whiteBackground{
+    padding: 1rem 1rem 2rem 1rem;
+    margin-top: 3rem;
+    background-color: rgba(255, 255, 255, 0.66);
+    border-radius: 25px;
+}

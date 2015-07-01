@@ -16,12 +16,56 @@
 
     <link rel="stylesheet" href="fortune.css"/>
 
+
     <title>Fortune teller</title>
 </h:head>
 
-<h:body>
-    <div class="container">
+<h:body id="userlist">
+    <div class="container" id="whiteBackground">
        <h1>userlist</h1>
+
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <h:link class="navbar-brand" outcome="fortune">Fortune</h:link>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search"/>
+                        </div>
+                        <button type="submit" class="btn btn-default">i'm sorry it's fake</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><h:link outcome="userform">add new user</h:link></li>
+                                <li><h:link outcome="fortune">get a new fortune</h:link></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+
 
         <h:dataTable value="#{userController.returnAllUsers()}" var="user" class="table table-hover">
 
@@ -33,10 +77,10 @@
             </h:column>
 
             <h:column>
-                <f:facet name="header">
-                    <h:outputText value="first name"/>
-                </f:facet>
-                <a href="/fortune/user.faces?id=#{user.id}"><h:outputText value="#{user.firstName}"/></a>
+            <f:facet name="header">
+                <h:outputText value="first name"/>
+            </f:facet>
+            <a href="/fortune/user.faces?id=#{user.id}"><h:outputText value="#{user.firstName}"/></a>
             </h:column>
 
             <h:column>
@@ -44,6 +88,27 @@
                     <h:outputText value="last name"/>
                 </f:facet>
                 <a href="/fortune/user.faces?id=#{user.id}"><h:outputText value="#{user.lastName}"/></a>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="details"/>
+                </f:facet>
+
+                <h:link outcome="user">
+                    <span class="btn btn-info btn-sm glyphicon glyphicon-sunglasses"></span>
+                    <f:param name="id" value="#{user.id}"/>
+                </h:link>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="delete"/>
+                </f:facet>
+                <h:form>
+                <h:commandLink styleClass="btn btn-danger btn-sm glyphicon glyphicon-erase" action="#{userController.removeUser(user.id)}">
+                </h:commandLink>
+                </h:form>
             </h:column>
 
             <h:column>
@@ -63,6 +128,15 @@
                     <h:outputText value="gender"/>
                 </f:facet>
                 <h:outputText value="#{user.gender.getLabel()}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="call"/>
+                </f:facet>
+                <h:link outcome="fortune">
+                <span class="glyphicon glyphicon-phone-alt"></span>
+                </h:link>
             </h:column>
 
         </h:dataTable>

@@ -26,5 +26,11 @@ public class UserRepository {
         entityManager.merge(user);
     }
 
+    public void remove(int id) {
+        entityManager.remove(entityManager.getReference(User.class, id));
+    }
+
+
+
 
 }

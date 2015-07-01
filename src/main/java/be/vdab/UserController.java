@@ -40,4 +40,9 @@ public class UserController {
         return "users";
     }
 
+    public String removeUser(Integer id)  {
+        userRepository.remove(id);
+        return "users";
+    }
+
 }
