@@ -17,10 +17,19 @@ public class User {
 
     private String birthDate;
 
+    private Gender gender;
+
+    private String email;
+
+    private ServiceLevel serviceLevel;
+
+    private String phoneNumber;
+
+    private String accountNumber;
     /**
      * Used by JPA.
      */
-    protected User() {
+    public User() {
     }
 
     public User(String firstName, String lastName, String birthDate) {
@@ -59,5 +68,45 @@ public class User {
 
     public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public ServiceLevel getServiceLevel() {
+        return serviceLevel;
+    }
+
+    public void setServiceLevel(ServiceLevel serviceLevel) {
+        this.serviceLevel = serviceLevel;
     }
 }

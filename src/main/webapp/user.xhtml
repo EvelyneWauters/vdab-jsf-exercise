@@ -25,13 +25,19 @@
         <h1> <h:outputText value="#{user.firstName} #{user.lastName}"/></h1>
         <p>
             This is the profile page of
-           <h:outputText value="#{user.firstName} #{user.lastName}"/>
+            <h:outputText value="#{user.firstName} #{user.lastName}"/>
             <h:outputText value=""/>
             who is born on
             <h:outputText value="#{user.birthDate}"/>
-            and has an id that equals
+            and has id:
             <kbd> <h:outputText value="#{user.id}"/> </kbd>
         </p>
+
+
+        <h2>List of all persons</h2>
+        <c:forEach items="#{userController.returnAllUsers()}" var="users">
+            ${users}<br/>
+        </c:forEach>
 
 
     </div>
