@@ -1,6 +1,7 @@
 package be.vdab.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Past;
 import java.util.Date;
 
 @Entity
@@ -13,6 +14,7 @@ public class User {
 
     private String lastName;
 
+    @Past
     private Date birthDate;
 
     @Enumerated(EnumType.STRING)
