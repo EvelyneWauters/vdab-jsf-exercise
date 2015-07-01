@@ -21,7 +21,7 @@
 </h:head>
 
 <h:body id="userlist">
-    <div class="container" id="whiteBackground">
+    <div class="container whiteBackground">
        <h1>userlist</h1>
 
 
@@ -35,7 +35,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <h:link class="navbar-brand" outcome="fortune">Fortune</h:link>
+                    <h:link class="navbar-brand" outcome="fortune">Get a Fortune!</h:link>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -78,16 +78,12 @@
 
             <h:column>
             <f:facet name="header">
-                <h:outputText value="first name"/>
+                <h:outputText value="name"/>
             </f:facet>
-            <a href="/fortune/user.faces?id=#{user.id}"><h:outputText value="#{user.firstName}"/></a>
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="last name"/>
-                </f:facet>
-                <a href="/fortune/user.faces?id=#{user.id}"><h:outputText value="#{user.lastName}"/></a>
+                <h:link outcome="user">
+                    <h:outputText value="#{user.firstName} #{user.lastName}"/>
+                    <f:param name="id" value="#{user.id}"/>
+                </h:link>
             </h:column>
 
             <h:column>
@@ -103,16 +99,6 @@
 
             <h:column>
                 <f:facet name="header">
-                    <h:outputText value="delete"/>
-                </f:facet>
-                <h:form>
-                <h:commandLink styleClass="btn btn-danger btn-sm glyphicon glyphicon-erase" action="#{userController.removeUser(user.id)}">
-                </h:commandLink>
-                </h:form>
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">
                     <h:outputText value="email"/>
                 </f:facet>
                 <h:outputText value="#{user.email}"/>
@@ -121,7 +107,9 @@
                 <f:facet name="header">
                     <h:outputText value="birthday"/>
                 </f:facet>
-                <h:outputText value="#{user.birthDate}"/>
+                <h:outputText value="#{user.birthDate}">
+                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                </h:outputText>
             </h:column>
             <h:column>
                 <f:facet name="header">
@@ -139,10 +127,21 @@
                 </h:link>
             </h:column>
 
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="delete"/>
+                </f:facet>
+                <h:form>
+                    <h:commandLink styleClass="btn btn-danger btn-sm glyphicon glyphicon-erase" action="#{userController.removeUser(user.id)}">
+                    </h:commandLink>
+                </h:form>
+            </h:column>
+
+
         </h:dataTable>
 
 
-    <a href="userform.faces" class="btn btn-info">create a new user</a>
+    <h:link outcome="userform" class="btn btn-info">create a new user</h:link>
 
     </div>
 </h:body>

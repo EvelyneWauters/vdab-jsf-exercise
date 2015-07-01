@@ -36,6 +36,7 @@ public class UserController {
     }
 
     public String saveUser() {
+
         userRepository.createUser(user);
         return "users";
     }

@@ -6,9 +6,19 @@
     background-size: cover;
 }
 
-#whiteBackground{
+.whiteBackground{
     padding: 1rem 1rem 2rem 1rem;
     margin-top: 3rem;
     background-color: rgba(255, 255, 255, 0.66);
     border-radius: 25px;
 }
+
+#formbackground{
+    background: url(http://www.hddesktopbackgrounds.us/backgrounds-images/1920x1080/q6rxl-wallpapers-465512332-1920x1080.jpg);
+
+}
+
+.radio{
+    padding-right: 2rem;
+}
+

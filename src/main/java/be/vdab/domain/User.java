@@ -1,6 +1,7 @@
 package be.vdab.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -12,7 +13,7 @@ public class User {
 
     private String lastName;
 
-    private String birthDate;
+    private Date birthDate;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -31,7 +32,7 @@ public class User {
     public User() {
     }
 
-    public User(String accountNumber, String birthDate, String email, String firstName, Gender gender, String lastName, String phoneNumber, ServiceLevel serviceLevel) {
+    public User(String accountNumber, Date birthDate, String email, String firstName, Gender gender, String lastName, String phoneNumber, ServiceLevel serviceLevel) {
         this.accountNumber = accountNumber;
         this.birthDate = birthDate;
         this.email = email;
@@ -66,11 +67,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getBirthDate() {
+    public Date getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(String birthDate) {
+    public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
 
