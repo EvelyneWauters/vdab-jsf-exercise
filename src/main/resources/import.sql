@@ -49,5 +49,6 @@ insert into Fortune(message) values('You will conquer obstacles to achieve succe
 insert into Fortune(message) values('Joys are often the shadows, cast by sorrows.');
 insert into Fortune(message) values('Fortune favors the brave.');
 
-insert into User(firstName, lastName, birthDate, email) values('Jimi', 'Hendrix', '1948-12-17', 'jimi@watchtower.tx');
-insert into User(firstName, lastName, birthDate, email) values('Janis', 'Joplin', '1952-07-13', 'janis@mercedes.benz');
+insert into User(firstName, lastName, birthDate, email, gender) values('Jimi', 'Hendrix', '1948-12-17', 'jimi@watchtower.tx', 'MALE');
+insert into User(firstName, lastName, birthDate, email, gender) values('Janis', 'Joplin', '1952-07-13', 'janis@mercedes.benz', 'FEMALE');
+insert into User(firstName, lastName, birthDate, email, gender) values('Freddie', 'Mercury', '1946-09-05', 'iwantto@break.free', 'TO_BE_DECLARED');

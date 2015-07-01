@@ -36,14 +36,14 @@
                 <f:facet name="header">
                     <h:outputText value="first name"/>
                 </f:facet>
-                <h:outputText value="#{user.firstName}"/>
+                <a href="/fortune/user.faces?id=#{user.id}"><h:outputText value="#{user.firstName}"/></a>
             </h:column>
 
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="last name"/>
                 </f:facet>
-                <h:outputText value="#{user.lastName}"/>
+                <a href="/fortune/user.faces?id=#{user.id}"><h:outputText value="#{user.lastName}"/></a>
             </h:column>
 
             <h:column>
@@ -57,6 +57,12 @@
                     <h:outputText value="birthday"/>
                 </f:facet>
                 <h:outputText value="#{user.birthDate}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="gender"/>
+                </f:facet>
+                <h:outputText value="#{user.gender.getLabel()}"/>
             </h:column>
 
         </h:dataTable>

@@ -1,9 +1,6 @@
 package be.vdab.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -17,10 +14,12 @@ public class User {
 
     private String birthDate;
 
+    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     private String email;
 
+    @Enumerated(EnumType.STRING)
     private ServiceLevel serviceLevel;
 
     private String phoneNumber;
@@ -32,10 +31,15 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String birthDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public User(String accountNumber, String birthDate, String email, String firstName, Gender gender, String lastName, String phoneNumber, ServiceLevel serviceLevel) {
+        this.accountNumber = accountNumber;
         this.birthDate = birthDate;
+        this.email = email;
+        this.firstName = firstName;
+        this.gender = gender;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.serviceLevel = serviceLevel;
     }
 
     public Integer getId() {
