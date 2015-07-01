@@ -113,4 +113,9 @@ public class User {
     public void setServiceLevel(ServiceLevel serviceLevel) {
         this.serviceLevel = serviceLevel;
     }
+
+    public String fullName() {
+        return firstName + " " + lastName;
+    }
+
 }
